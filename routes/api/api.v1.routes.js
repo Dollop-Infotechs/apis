@@ -8,7 +8,7 @@ module.exports = (app) => {
     const jobpostcollection = require('../../controller/auth/jobpost.controller');
     var multer = require('multer');
     const path = require('path');
-    const email = require('../../../helper/custom.helper');
+    const email = require('../../helper/custom.helper');
     const verifylogin = require('../../middleware/token.verify.middleware');
  
 

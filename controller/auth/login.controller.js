@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-var db = require('../../../config/db.config');
+var db = require('../../config/db.config');
 const User = db.user;
 const UserToken = db.usertoken;
 

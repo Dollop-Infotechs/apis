@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-var db = require('../../../config/db.config');
+var db = require('../../config/db.config');
 var fs = require('fs');
 const Educationwork = db.educationworkdetails; 
 

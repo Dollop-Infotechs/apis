@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "password",
+    "database": "cambio",
+    "host": "142.93.220.160",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "password",
+    "database": "cambio",
+    "host": "142.93.220.160",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "password",
+    "database": "cambio",
+    "host": "142.93.220.160",
+    "dialect": "mysql"
+  }
+}
