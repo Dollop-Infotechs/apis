@@ -1,11 +1,14 @@
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 var db = require('../../config/db.config');
 var fs = require('fs');
 const User = db.user;
+// const Usertoken = db.usertoken;
 
 
 // Create and Save a new User
 exports.create = (req, res) => {
+    console.log(req.body);
     if (!req.body.email || !req.body.password) {
         return res.status(400).send({
             message: "User email or password can not be empty"
@@ -52,32 +55,33 @@ exports.create = (req, res) => {
 
     newUser.save()
         .then(data => {
-            res.send(data);
+            return res.status(200).send({
+                message:data});
         }).catch(err => {
             res.status(500).send({
                 message: err.message || "Some error occurred while creating a User."
             });
         });
-
 };
 
 exports.update = (req, res) => {
+    console.log(req.body);
     userdata = req.body;
-    if (!req.body.email) {
-        return res.status(400).send({
-            message: "User email can not be empty"
-        });
-    }
-    let userPassHash = '';
-    if (req.body.password != '' && req.body.password != undefined) {
-        userPassHash = bcrypt.hashSync(req.body.password, 10);
-    }
-    // Find user and update it with the request body    
+    
+    // // if (!req.body.email) {
+    // //     return res.status(400).send({
+    // //         message: "User email can not be empty"
+    // //     });
+    // // }
+    // let userPassHash = '';
+    // if (req.body.password != '' && req.body.password != undefined) {
+    //     userPassHash = bcrypt.hashSync(req.body.password, 10);
+    // }
+    // Find user and update it with the request body  
     User.update({
         name: req.body.name,
         username: req.body.username,
         email: req.body.email,
-        password: userPassHash,
         role: req.body.role,
         enable_location: req.body.enable_location,
         profile_visibility: req.body.profile_visibility,
@@ -102,13 +106,13 @@ exports.update = (req, res) => {
         special_talents: req.body.special_talents,
     },{
         where:{ id: req.params.userId}
-    }).then(data=>{
-        res.send(data);
+    }).then(()=>{
+        console.log("asdasd");
+        res.send(userdata);
     }).catch(err=>{
         res.send(err);
     })
-      
-};
+ };
 
 // Find a single user with a userId
 exports.findOne = (req, res) => {

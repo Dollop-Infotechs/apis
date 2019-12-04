@@ -1,21 +1,14 @@
 // module.exports = (sequelize, Sequelize) => {
-//     const User = sequelize.define('user_token', {
-//       name: {
-//         type: Sequelize.STRING
-//       },
+//     const Usertoken = sequelize.define('user_token', {
 //       user_id: {
 //         type: Sequelize.STRING,
 //         unique: true
 //       },
-//       usertoken:{
+//       temp_token:{
 //         type: Sequelize.STRING,
-//       },
-//       otp: {
-//         type: Sequelize.INTEGER
 //       },
 //     }, {
 //       freezeTableName: true
 //     });
-  
-//     return User;
+//     return Usertoken;
 //   }

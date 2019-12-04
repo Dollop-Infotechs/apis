@@ -15,9 +15,6 @@ if(req.body.email){
         var token = jwt.sign({ id: user._id }, process.env.SECRET, {
             expiresIn: 86400 // expires in 24 hours
         });
-        var token = jwt.sign({ id: user.id }, process.env.SECRET, {
-            expiresIn: 86400 // expires in 24 hours
-        });
         res.status(200).send({ auth: true, id: user.id, token: token, role: user.role, data: { name: user.name,  email: user.email }, message: "Authentication passed" });
        
     })

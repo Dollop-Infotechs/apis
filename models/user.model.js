@@ -99,6 +99,10 @@ module.exports = (sequelize, Sequelize) => {
       otp: {
         type: Sequelize.INTEGER
       },
+      isregister: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
       profile_pic: {
         type: Sequelize.STRING
       },

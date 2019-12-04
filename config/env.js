@@ -1,14 +1,14 @@
 const env = {
     database: 'cambio',
     username: 'root',
-    password: 'password',
-    host: '142.93.220.160',
+    password: '',
+    host: 'localhost',
     dialect: 'mysql',
     pool: {
-        max: '5',
-        min: '0',
-        acquire: '30000',
-        idle: '100'
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
     }
   };
    

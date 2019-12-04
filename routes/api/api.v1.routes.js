@@ -6,10 +6,12 @@ module.exports = (app) => {
     const interviewcollection = require('../../controller/auth/interviewcollection.controller');
     const jobfeedcollection = require('../../controller/auth/jobfeedcollection.controller');
     const jobpostcollection = require('../../controller/auth/jobpost.controller');
+    const jobapplication = require('../../controller/auth/jobapplication.controller');
     var multer = require('multer');
     const path = require('path');
     const email = require('../../helper/custom.helper');
     const verifylogin = require('../../middleware/token.verify.middleware');
+    
  
 
   //  Create a new User
@@ -80,4 +82,10 @@ module.exports = (app) => {
 
     app.post('/jobpostcollection', verifylogin, jobpostcollection.create); 
     app.patch('/jobpostcollection/:userId', verifylogin, jobpostcollection.update); 
+
+      /* =================
+       Job Application collection
+       =================*/
+
+    app.post('/jobapplication', verifylogin, jobapplication.create); 
 }
